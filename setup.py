@@ -11,5 +11,7 @@ setup(
     install_requires=[
         "pysensors",
     ],
-    scripts=['bin/sensors_agent'],
+    scripts=[
+        'bin/sensors_agent',
+    ],
 )

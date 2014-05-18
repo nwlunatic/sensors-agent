@@ -3,6 +3,7 @@ import subprocess
 import shlex
 import sensors
 import json
+import re
 
 
 def get_sensors_temp():
@@ -45,7 +46,11 @@ def get_hdd_temp(hdd):
 
     out, err = grep_process.communicate()
     parts = [line.rstrip().lstrip() for line in out.split(":")]
-    return parts[1], parts[2]
+    try:
+        value = float(parts[2].split(' ')[0])
+    except ValueError:
+        value = parts[2]
+    return parts[1], value
 
 
 def get_hdds_temp():
