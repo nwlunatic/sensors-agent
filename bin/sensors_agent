@@ -7,7 +7,7 @@ parser.add_argument("-p", "--port", type=int, default=9999,
                     help="default port is 9999")
 parser.add_argument("-pf", "--pidfile", type=str, default=None,
                     help="create pid file in a given path.")
-parser.add_argument("-d", "--daemonize", type=bool, default=False,
+parser.add_argument("-d", "--daemonize", action='store_true',
                     help="daemonize the process. Suggest to use with pidfile")
 
 args = parser.parse_args()
